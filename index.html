@@ -102,6 +102,123 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    let sec = document.querySelector('#error-btns');
+    let but = sec.getElementsByTagName('button');
+    
+    let lo = but[0];
+    lo.addEventListener('click', () => {
+      console.log("your mom");
+    });
+
+    let er = but[1];
+    er.addEventListener('click', () => {
+      console.error('uh oh');
+    });
+
+    let co = but[2];
+    co.addEventListener('click', () => {
+      console.count('button');
+    }
+    );
+
+    let wa = but[3];
+    wa.addEventListener('click', () => {
+      console.warn('watch out');
+    });
+
+    let as = but[4];
+    as.addEventListener('click', () => {
+      console.assert(false, 'assert');
+    });
+
+    let cl = but[5];
+    cl.addEventListener('click', () => {
+      console.clear();
+    });
+
+    let di = but[6];
+    di.addEventListener('click', () => {
+      console.dir('hm', 'hi');
+    });
+
+    let dx = but[7];
+    dx.addEventListener('click', () => {
+      console.dirxml('hello');
+    });
+
+    let cg = but[8];
+    cg.addEventListener('click', () => {
+      console.group("start");
+      console.log("new level!");
+    });
+
+    let ce = but[9];
+    ce.addEventListener('click', () => {
+      console.log('still in group');
+      console.groupEnd();
+      console.log('out of group!');
+    });
+
+    let ta = but[10];
+    ta.addEventListener('click', () => {
+      console.table(["apples", "oranges", "bananas"]);
+    });
+
+    let ti = but[11];
+    ti.addEventListener('click', () => {
+      console.time('a');
+      console.log('Started timer!');
+    });
+
+    let te = but[12];
+    te.addEventListener('click', () => {
+      console.timeEnd('a');
+    });
+
+    let tr = but[13];
+    tr.addEventListener('click', () => {
+      console.trace('you');
+    });
+
+    let glo = but[14];
+    glo.addEventListener('click', () => {
+      JSON.parse('no parse');
+    });
+    class PersonError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "PersonError";
+      }
+    }
+
+    try{
+      let ex = JSON.parse('no parse, maybe theres a person here');
+      
+      if (!ex.name) {
+        throw new SyntaxError("Incomplete data: no name");
+      }
+      console.log('if no throw');
+      alert(ex.name);
+    }
+    catch(err) {
+      alert('cant parse the JSON unfortunately');
+    }
+    finally {
+      alert('finally');
+    }
+
+    try{
+      let ext = JSON.parse('{person}');
+      if (!ext.person) {
+        throw new PersonError("uh oh");
+      }
+    }
+    catch (err){
+      alert('this is custom');
+    }
+    window.addEventListener('error', () => {
+      console.log('errrororor');
+    });
   </script>
 </body>
 
